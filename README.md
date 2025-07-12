@@ -1,66 +1,223 @@
-# Django
+# 🏨 Génesis Wine Hotel Virtual
 
-[![1-click-deploy](https://raw.githubusercontent.com/DefangLabs/defang-assets/main/Logos/Buttons/SVG/deploy-with-defang.svg)](https://portal.defang.dev/redirect?url=https%3A%2F%2Fgithub.com%2Fnew%3Ftemplate_name%3Dsample-django-template%26template_owner%3DDefangSamples)
+O primeiro hotel virtual universitário de Moçambique! Uma plataforma inovadora que combina hospedagem virtual com educação gamificada.
 
-This sample is a simple Django to-do app that uses SQLite as the database, which will be reset every time you deploy. **It is not production-ready**. For production use cases, you should check out the Django + Postgres sample.
+## 🌟 Características Principais
 
-The app includes a management command which is run on startup to create a superuser with the username `admin` and password `admin`. This means you can login to the admin interface at `/admin/` and see the Django admin interface without any additional steps. The `example_app` is already registered and the `Todo` model is already set up to be managed in the admin interface.
+- **🏨 Hotel Virtual**: Experiência única de hospedagem digital
+- **🎓 Foco Educacional**: Ambiente pensado para estudantes universitários
+- **🤖 NALDA AI**: Assistente virtual inteligente 24/7
+- **📚 Biblioteca Digital**: Recursos académicos exclusivos
+- **🏆 Gamificação**: Sistema de pontos, níveis e conquistas
+- **💼 Mentoria**: Orientação profissional especializada
+- **🎪 Eventos VIP**: Acesso a palestras e workshops exclusivos
 
-The Dockerfile and compose files are already set up for you and are ready to be deployed. Serving is done using [Gunicorn](https://gunicorn.org/) and uses [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/) for static files. The `CSRF_TRUSTED_ORIGINS` setting is configured to allow the app to run on a `defang.dev` subdomain.
+## 🛏️ Tipos de Suítes
 
-## Prerequisites
+### 🎓 Suíte Estudante (500 MT/semana)
+- Wi-Fi Premium
+- Biblioteca Digital Básica
+- Chat com NALDA
+- Sistema de Gamificação
+- Suporte 24/7
 
-1. Download [Defang CLI](https://github.com/DefangLabs/defang)
-2. (Optional) If you are using [Defang BYOC](https://docs.defang.io/docs/concepts/defang-byoc) authenticate with your cloud provider account
-3. (Optional for local development) [Docker CLI](https://docs.docker.com/engine/install/)
+### 🏛️ Suíte Académica (1000 MT/mês)
+- Wi-Fi Premium
+- Biblioteca Digital Completa
+- Chat Avançado com NALDA
+- Mentoria Semanal
+- Eventos VIP
+- Sistema de Gamificação Avançado
+- Certificados Básicos
+- Networking Estudantil
 
-## Development
+### 👑 Suíte Génesis Wine (2000 MT/3 meses)
+- Tudo Incluído Premium
+- Biblioteca Digital VIP
+- NALDA Personalizada
+- Mentoria 1:1 Semanal
+- Acesso Exclusivo a Eventos
+- Certificados Oficiais
+- Networking Executivo
+- Suporte Prioritário
+- Recursos Exclusivos Génesis Wine
+- Gamificação VIP
 
-To run the application locally, you can use the following command:
+## 🚀 Instalação e Configuração
 
+### Pré-requisitos
+- Python 3.8+
+- pip (gerenciador de pacotes Python)
+
+### Passos de Instalação
+
+1. **Clone o repositório**
 ```bash
-docker compose up --build
+git clone <repository-url>
+cd "Genesis Wine/Nova Vida"
 ```
 
-## Configuration
-
-For this sample, you will not need to provide [configuration](https://docs.defang.io/docs/concepts/configuration). 
-
-If you wish to provide configuration, see below for an example of setting a configuration for a value named `API_KEY`.
-
+2. **Instale as dependências**
 ```bash
-defang config set API_KEY
+pip install -r requirements.txt
 ```
 
-## Deployment
-
-> [!NOTE]
-> Download [Defang CLI](https://github.com/DefangLabs/defang)
-
-### Defang Playground
-
-Deploy your application to the Defang Playground by opening up your terminal and typing:
+3. **Configure o banco de dados**
 ```bash
-defang compose up
+python manage.py makemigrations
+python manage.py migrate
 ```
 
-### BYOC (AWS)
+4. **Popule o banco com dados iniciais**
+```bash
+python populate_db.py
+```
 
-If you want to deploy to your own cloud account, you can use Defang BYOC:
+5. **Crie um superusuário (opcional)**
+```bash
+python manage.py createsuperuser
+```
 
-1. [Authenticate your AWS account](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html), and check that you have properly set your environment variables like `AWS_PROFILE`, `AWS_REGION`, `AWS_ACCESS_KEY_ID`, and `AWS_SECRET_ACCESS_KEY`.
-2. Make sure to update the `CSRF_TRUSTED_ORIGINS` setting in the `settings.py` file to include an appropriate domain.
-3. Run in a terminal that has access to your AWS environment variables:
-    ```bash
-    defang --provider=aws compose up
-    ```
+6. **Execute o servidor**
+```bash
+python manage.py runserver
+```
 
----
+7. **Acesse a aplicação**
+- Aplicação: http://127.0.0.1:8000/
+- Admin: http://127.0.0.1:8000/admin/
 
-Title: Django
+## 🎯 Funcionalidades
 
-Short Description: A simple Django app that uses SQLite as the database.
+### Para Usuários
+- ✅ Registro e autenticação
+- ✅ Dashboard personalizado
+- ✅ Sistema de reservas
+- ✅ Chat com NALDA (IA)
+- ✅ Sistema de pontos e níveis
+- ✅ Gestão de créditos
+- ✅ Histórico de reservas
 
-Tags: Django, SQLite, Python
+### Para Administradores
+- ✅ Painel administrativo Django
+- ✅ Gestão de usuários e perfis
+- ✅ Gestão de tipos de quartos
+- ✅ Monitoramento de reservas
+- ✅ Histórico de conversas com NALDA
+- ✅ Comando de limpeza automática
 
-Languages: python
+## 🤖 NALDA - Assistente Virtual
+
+A NALDA é nossa assistente virtual inteligente que pode ajudar com:
+
+- 🛏️ Informações sobre quartos e preços
+- 📅 Como fazer reservas
+- 🎁 Serviços incluídos em cada plano
+- 🏆 Sistema de pontos e gamificação
+- ❓ Dúvidas gerais sobre o hotel
+- 🔧 Suporte técnico básico
+
+## 🏆 Sistema de Gamificação
+
+### Níveis de Usuário
+1. **Caloiro** (Nível 1) - Iniciante
+2. **Estudante** (Nível 2) - 1000+ pontos
+3. **Académico** (Nível 3) - 2500+ pontos
+4. **Especialista** (Nível 4) - 5000+ pontos
+5. **Mestre Génesis** (Nível 5) - 10000+ pontos
+
+### Como Ganhar Pontos
+- 🎯 Fazer reservas (1 ponto por 10 créditos gastos)
+- 📅 Login diário (+10 pontos)
+- 🎪 Participar de eventos (+50 pontos)
+- ✅ Completar tarefas (+25 pontos)
+- 🤝 Interagir com outros usuários
+
+## 🛠️ Comandos de Gestão
+
+### Limpeza de Reservas Expiradas
+```bash
+python manage.py cleanup_expired_reservations
+```
+
+## 📁 Estrutura do Projeto
+
+```
+Genesis Wine/Nova Vida/
+├── genesis_wine/          # Configurações do projeto Django
+├── hotel/                 # App principal
+│   ├── models.py         # Modelos de dados
+│   ├── views.py          # Lógica de visualização
+│   ├── urls.py           # Rotas da aplicação
+│   ├── admin.py          # Configuração do admin
+│   ├── signals.py        # Sinais Django
+│   └── management/       # Comandos personalizados
+├── templates/            # Templates HTML
+│   ├── base.html        # Template base
+│   ├── hotel/           # Templates do hotel
+│   └── registration/    # Templates de autenticação
+├── manage.py            # Utilitário Django
+├── populate_db.py       # Script de população inicial
+├── requirements.txt     # Dependências Python
+└── README.md           # Este arquivo
+```
+
+## 🔒 Segurança
+
+- ✅ Proteção CSRF
+- ✅ Validação de entrada
+- ✅ Rate limiting para chat
+- ✅ Sanitização de dados
+- ✅ Sessões seguras
+- ✅ Transações atômicas
+
+## 🌐 Deploy para Produção
+
+### Configurações Importantes
+
+1. **Altere a SECRET_KEY** em `settings.py`
+2. **Configure DEBUG = False**
+3. **Configure ALLOWED_HOSTS** adequadamente
+4. **Configure banco de dados de produção**
+5. **Configure HTTPS** (SESSION_COOKIE_SECURE = True)
+6. **Configure arquivos estáticos**
+
+### Exemplo de Configuração para Produção
+
+```python
+# settings.py
+DEBUG = False
+ALLOWED_HOSTS = ['seudominio.com', 'www.seudominio.com']
+
+# Banco de dados PostgreSQL (recomendado)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'genesis_wine_db',
+        'USER': 'seu_usuario',
+        'PASSWORD': 'sua_senha',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+# Segurança HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+```
+
+## 📞 Suporte
+
+Para suporte técnico ou dúvidas:
+- 🤖 Use a NALDA dentro da aplicação
+- 📧 Entre em contato com a equipe de desenvolvimento
+
+## 📄 Licença
+
+Este projeto é propriedade do Génesis Wine Hotel Virtual.
+
+## 🍷 Sobre o Génesis Wine
+
+O Génesis Wine Hotel Virtual é uma iniciativa inovadora para transformar a educação em Moçambique, oferecendo uma experiência única que combina tecnologia, educação e hospitalidade virtual.
+
+**"Onde o Conhecimento Encontra a Excelência"** ✨

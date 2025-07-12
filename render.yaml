@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: genesis-wine-hotel
+    env: python
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput --settings=genesis_wine.settings_free_deploy && python manage.py migrate --settings=genesis_wine.settings_free_deploy
+    startCommand: gunicorn genesis_wine.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: genesis_wine.settings_free_deploy
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
